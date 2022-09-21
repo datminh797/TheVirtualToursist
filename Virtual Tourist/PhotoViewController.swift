@@ -153,32 +153,9 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       
         if let photo = photos?[(indexPath as NSIndexPath).row] {
-            pinned?.removeFromRelationshipPhoto(photo)
+            CoreDataService.sharedInstance().viewContext.delete(photo)
             try? CoreDataService.sharedInstance().viewContext.save()
         }
         reloadPhotos()
     }
 }
-//let imageCache = NSCache<AnyObject, AnyObject>()
-//
-//extension UIImage {
-//    static func loadImageWithUrlString(_ url: URL, completion: @escaping (UIImage) -> Void) {
-//        if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString) as? UIImage {
-//            completion(cachedImage)
-//        }
-//        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-//            if let error = error {
-//                print(error)
-//                return
-//            }
-//
-//            DispatchQueue.main.async(execute: {
-//                if let downloadedImage = UIImage(data: data!) {
-//                    imageCache.setObject(downloadedImage, forKey: url.absoluteString as NSString)
-//                    completion(downloadedImage)
-//                }
-//            })
-//
-//        }).resume()
-//    }
-//}
