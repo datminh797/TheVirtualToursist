@@ -26,9 +26,9 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.setupMapView()
-        self.setupCollectionView()
-        self.reloadPhotos()
+        setupMapView()
+        setupCollectionView()
+        reloadPhotos()
         
     }
     
@@ -86,6 +86,8 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
     
     func photoSearchResponse(response: FlickerSearchResponse?, error: Error?) -> Void {
+        try? CoreDataService.sharedInstance().viewContext.delete
+
         if let response = response {
             pinned?.relationshipPhoto = []
             self.photo = response.photos
@@ -149,6 +151,7 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      
         if let photo = photos?[(indexPath as NSIndexPath).row] {
             pinned?.removeFromRelationshipPhoto(photo)
             try? CoreDataService.sharedInstance().viewContext.save()
