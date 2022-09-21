@@ -34,8 +34,6 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        page = 1
-        self.getPhoto()
     }
     
     func setupCollectionView() {
@@ -77,7 +75,7 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
 
     @IBAction func newCollectionAction(_ sender: Any) {
-        page = Int(arc4random_uniform(UInt32(self.totalImage / (self.photo?.pages ?? 6))))
+        page = Int.random(in: 1...10)
         getPhoto()
     }
     
