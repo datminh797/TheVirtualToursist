@@ -77,7 +77,7 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
 
     @IBAction func newCollectionAction(_ sender: Any) {
-        page = Int.random(in: 1...10)
+        page = Int.random(in: 1...totalImage/(photos?.count ?? 1))
         getPhoto()
     }
     
