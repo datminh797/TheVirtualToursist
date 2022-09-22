@@ -26,14 +26,16 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupMapView()
-        setupCollectionView()
-        reloadPhotos()
+        self.setupMapView()
+        self.setupCollectionView()
+        self.reloadPhotos()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        page = 1
+        self.getPhoto()
     }
     
     func setupCollectionView() {
