@@ -86,7 +86,12 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
     
     func photoSearchResponse(response: FlickerSearchResponse?, error: Error?) -> Void {
-        try? CoreDataService.sharedInstance().viewContext.delete
+//        try? CoreDataService.sharedInstance().viewContext.delete
+        
+        var arr = [CoreDataService.sharedInstance().fetchedData?.fetchedObjects]
+        for i in arr {
+            try? CoreDataService.sharedInstance().viewContext.delete
+        }
 
         if let response = response {
             pinned?.relationshipPhoto = []
