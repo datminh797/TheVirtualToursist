@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import MapKit
 import CoreImage
+import CoreData
 
 class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout, MKMapViewDelegate {
 
@@ -86,11 +87,10 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
     
     func photoSearchResponse(response: FlickerSearchResponse?, error: Error?) -> Void {
-//        try? CoreDataService.sharedInstance().viewContext.delete
-        
-        var arr = [CoreDataService.sharedInstance().fetchedData?.fetchedObjects]
-        for i in arr {
-            try? CoreDataService.sharedInstance().viewContext.delete
+        let object : [NSManagedObject] = photos ?? []
+        for photo in object{
+            CoreDataService.sharedInstance().viewContext.delete(photo)
+            try? CoreDataService.sharedInstance().viewContext.save()
         }
 
         if let response = response {
