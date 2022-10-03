@@ -12,7 +12,7 @@ import CoreImage
 import CoreData
 
 class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout, MKMapViewDelegate {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
@@ -36,7 +36,11 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         page = 1
-      getPhoto()
+        
+        if(photos?.count != 0){
+            getPhoto()
+
+        }
     }
     
     func setupCollectionView() {
@@ -61,7 +65,7 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         mapView.delegate = self
         
         let annotation = MKPointAnnotation()
-               
+        
         let cordinate = CLLocationCoordinate2D(latitude: pinned?.latitude ?? 0, longitude: pinned?.longitude ?? 0)
         annotation.coordinate = cordinate
         
@@ -76,7 +80,7 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
     }
-
+    
     @IBAction func newCollectionAction(_ sender: Any) {
         page = Int.random(in: 1...10)
         getPhoto()
@@ -92,7 +96,7 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             CoreDataService.sharedInstance().viewContext.delete(photo)
             try? CoreDataService.sharedInstance().viewContext.save()
         }
-
+        
         if let response = response {
             pinned?.relationshipPhoto = []
             self.photo = response.photos
@@ -156,7 +160,7 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      
+        
         if let photo = photos?[(indexPath as NSIndexPath).row] {
             CoreDataService.sharedInstance().viewContext.delete(photo)
             try? CoreDataService.sharedInstance().viewContext.save()
