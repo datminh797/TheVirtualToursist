@@ -36,11 +36,8 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         page = 1
+        getPhoto()
         
-        if(photos?.count != 0){
-            getPhoto()
-
-        }
     }
     
     func setupCollectionView() {
