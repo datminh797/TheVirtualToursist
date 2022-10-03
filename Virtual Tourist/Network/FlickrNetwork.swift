@@ -30,23 +30,26 @@ class FlickrNetwork {
     
     class func getRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
         let task = URLSession.shared.dataTask(with: url) {data, response, error in
-            let range = Range(uncheckedBounds: (14, data!.count - 1))
-            let newData = data?.subdata(in: range)
-            guard let newData = newData else {
-                DispatchQueue.main.async {
-                    completion(nil, error)
+            if let data1 = data {
+                let range = Range(uncheckedBounds: (14, data1.count - 1))
+                let newData = data?.subdata(in: range)
+                guard let newData = newData else {
+                    DispatchQueue.main.async {
+                        completion(nil, error)
+                    }
+                    return
                 }
-                return
-            }
-            let decoder = JSONDecoder()
-            do {
-                let responseObject = try decoder.decode(ResponseType.self, from: newData)
-                DispatchQueue.main.async {
-                    completion(responseObject, nil)
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completion(nil, error)
+                
+                let decoder = JSONDecoder()
+                do {
+                    let responseObject = try decoder.decode(ResponseType.self, from: newData)
+                    DispatchQueue.main.async {
+                        completion(responseObject, nil)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completion(nil, error)
+                    }
                 }
             }
         }
