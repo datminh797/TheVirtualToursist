@@ -24,6 +24,15 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     var totalImage: Int = 0
     var photo: PhotoModel?
     
+//    lazy var fetchResultController : NSFetchedResultsController = {
+//
+//        let frc = NSFetchedResultsController(fetchRequest: <#T##NSFetchRequest<NSFetchRequestResult>#>, managedObjectContext: <#T##NSManagedObjectContext#>, sectionNameKeyPath: <#T##String?#>, cacheName: <#T##String?#>)
+//
+//        return frc
+//    }()
+    
+    var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,6 +45,19 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         page = 1
+        
+        // fetchResultController
+//         if fetchResultController.fetchedObject.count == 0 {
+//                    getFlickrImages(lat: <#T##Double#>, lng: <#T##Double#>, page: <#T##Int#>, completion: <#T##(FlickerSearchResponse?, Error?) -> Void#>)
+//                }
+        
+        let objectCount = fetchedResultsController.fetchedObjectsCount
+        print(objectCount)
+        
+        if objectCount == 0 {
+            getPhoto()
+        
+        }
         getPhoto()
         
     }
@@ -164,4 +186,15 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
         reloadPhotos()
     }
+}
+
+
+extension NSFetchedResultsController {
+    @objc var fetchedObjectsCount: Int {
+            // Avoid actually fetching the objects. Just count them. Why is there no API like this on NSFetchResultsController?
+            let count = sections?.reduce(0, { (sum, sectionInfo) -> Int in
+                return sum + sectionInfo.numberOfObjects
+            }) ?? 0
+            return count
+        }
 }
