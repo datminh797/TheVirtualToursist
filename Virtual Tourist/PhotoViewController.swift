@@ -61,6 +61,7 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         page = 1
+        setupfetchController()
         if fetchedResultsController.fetchedObjects?.count == 0 {
             getPhoto()
 

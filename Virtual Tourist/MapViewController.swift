@@ -22,6 +22,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.title = "Virtual Tourist"
+        coreData = CoreDataService.sharedInstance()
         CoreDataService.sharedInstance().fetchedData(self)
         setTheMap()
         loadThePin()
@@ -122,7 +123,7 @@ extension MapViewController:MKMapViewDelegate {
             return
         }
         vc.pinned = annotation?.pinned
-        vc.coreDataService = coreData!
+//        vc.coreDataService = coreData!
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
