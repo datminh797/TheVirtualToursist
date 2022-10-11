@@ -45,19 +45,6 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         page = 1
-        
-        // fetchResultController
-//         if fetchResultController.fetchedObject.count == 0 {
-//                    getFlickrImages(lat: <#T##Double#>, lng: <#T##Double#>, page: <#T##Int#>, completion: <#T##(FlickerSearchResponse?, Error?) -> Void#>)
-//                }
-        
-        let objectCount = fetchedResultsController.fetchedObjectsCount
-        print(objectCount)
-        
-        if objectCount == 0 {
-            getPhoto()
-        
-        }
         getPhoto()
         
     }
