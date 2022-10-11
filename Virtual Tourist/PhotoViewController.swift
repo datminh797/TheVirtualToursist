@@ -11,27 +11,43 @@ import MapKit
 import CoreImage
 import CoreData
 
-class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout, MKMapViewDelegate {
+class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout, MKMapViewDelegate, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     var pinned: Pin?
-    var coreDataService: CoreDataService?
+//    var coreDataService: CoreDataService?
+    var coreDataService = CoreDataService.sharedInstance()
     var photos: [Photo]?
     var page: Int = 0
     var totalImage: Int = 0
     var photo: PhotoModel?
     
-//    lazy var fetchResultController : NSFetchedResultsController = {
-//
-//        let frc = NSFetchedResultsController(fetchRequest: <#T##NSFetchRequest<NSFetchRequestResult>#>, managedObjectContext: <#T##NSManagedObjectContext#>, sectionNameKeyPath: <#T##String?#>, cacheName: <#T##String?#>)
-//
-//        return frc
-//    }()
     
-    var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>!
+    var fetchedResultsController : NSFetchedResultsController<Photo>!
+    func setupfetchController(){
+        let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
+        
+        let predicate = NSPredicate(format: "relationshipPin == %@", pinned!)
+        fetchRequest.predicate = predicate
+        
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coreDataService.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: self.pinned)) - photos")
+
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        }
+        catch {
+            fatalError("The fecth can not be performed: \(error.localizedDescription)")
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +61,10 @@ class PhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         page = 1
-        getPhoto()
+        if fetchedResultsController.fetchedObjects?.count == 0 {
+            getPhoto()
+
+        }
         
     }
     

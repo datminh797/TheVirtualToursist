@@ -15,73 +15,73 @@
             filePath = "Virtual Tourist/PhotoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "PhotoViewController"
             landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "3060DD50-7990-4485-AACE-FAE8F56BE13E - 51ce73ef956d7093"
+                  uuid = "3060DD50-7990-4485-AACE-FAE8F56BE13E - 81e2ee49e5007b25"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Virtual_Tourist.PhotoViewController.fetchedResultsController.getter : Swift.Optional&lt;__C.NSFetchedResultsController&lt;__C.NSFetchRequestResult&gt;&gt;"
+                  symbolName = "Virtual_Tourist.PhotoViewController.fetchedResultsController.getter : Swift.Optional&lt;__C.NSFetchedResultsController&lt;Virtual_Tourist.Photo&gt;&gt;"
                   moduleName = "Virtual Tourist"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/minhdat/minhDat97/Git/Virtual%20Tourist/TheVirtualToursist/Virtual%20Tourist/PhotoViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
                   offsetFromSymbolStart = "88">
                </Location>
                <Location
-                  uuid = "3060DD50-7990-4485-AACE-FAE8F56BE13E - d55506c13572487"
+                  uuid = "3060DD50-7990-4485-AACE-FAE8F56BE13E - b24d6ef4ebc37711"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Virtual_Tourist.PhotoViewController.fetchedResultsController.setter : Swift.Optional&lt;__C.NSFetchedResultsController&lt;__C.NSFetchRequestResult&gt;&gt;"
+                  symbolName = "Virtual_Tourist.PhotoViewController.fetchedResultsController.setter : Swift.Optional&lt;__C.NSFetchedResultsController&lt;Virtual_Tourist.Photo&gt;&gt;"
                   moduleName = "Virtual Tourist"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/minhdat/minhDat97/Git/Virtual%20Tourist/TheVirtualToursist/Virtual%20Tourist/PhotoViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
                   offsetFromSymbolStart = "108">
                </Location>
                <Location
-                  uuid = "3060DD50-7990-4485-AACE-FAE8F56BE13E - 54acdb3a0107db96"
+                  uuid = "3060DD50-7990-4485-AACE-FAE8F56BE13E - 24dc2295019c8822"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Virtual_Tourist.PhotoViewController.fetchedResultsController.modify : Swift.Optional&lt;__C.NSFetchedResultsController&lt;__C.NSFetchRequestResult&gt;&gt;"
+                  symbolName = "Virtual_Tourist.PhotoViewController.fetchedResultsController.modify : Swift.Optional&lt;__C.NSFetchedResultsController&lt;Virtual_Tourist.Photo&gt;&gt;"
                   moduleName = "Virtual Tourist"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/minhdat/minhDat97/Git/Virtual%20Tourist/TheVirtualToursist/Virtual%20Tourist/PhotoViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
                   offsetFromSymbolStart = "0">
                </Location>
                <Location
-                  uuid = "3060DD50-7990-4485-AACE-FAE8F56BE13E - 72e63f837b6ce83a"
+                  uuid = "3060DD50-7990-4485-AACE-FAE8F56BE13E - cff167f7a1403fe6"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Virtual_Tourist.PhotoViewController.fetchedResultsController.modify : Swift.Optional&lt;__C.NSFetchedResultsController&lt;__C.NSFetchRequestResult&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  symbolName = "Virtual_Tourist.PhotoViewController.fetchedResultsController.modify : Swift.Optional&lt;__C.NSFetchedResultsController&lt;Virtual_Tourist.Photo&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
                   moduleName = "Virtual Tourist"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/minhdat/minhDat97/Git/Virtual%20Tourist/TheVirtualToursist/Virtual%20Tourist/PhotoViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
-                  uuid = "3060DD50-7990-4485-AACE-FAE8F56BE13E - 4005975c7ea6063f"
+                  uuid = "3060DD50-7990-4485-AACE-FAE8F56BE13E - 4005975c7ea606da"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -91,12 +91,12 @@
                   urlString = "file:///Users/minhdat/minhDat97/Git/Virtual%20Tourist/TheVirtualToursist/Virtual%20Tourist/PhotoViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "472">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "500">
                </Location>
                <Location
-                  uuid = "3060DD50-7990-4485-AACE-FAE8F56BE13E - bbbaffe71b415b48"
+                  uuid = "3060DD50-7990-4485-AACE-FAE8F56BE13E - bbbaffe71b415bad"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -106,9 +106,9 @@
                   urlString = "file:///Users/minhdat/minhDat97/Git/Virtual%20Tourist/TheVirtualToursist/Virtual%20Tourist/PhotoViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "448">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "476">
                </Location>
             </Locations>
          </BreakpointContent>

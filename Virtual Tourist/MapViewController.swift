@@ -122,7 +122,7 @@ extension MapViewController:MKMapViewDelegate {
             return
         }
         vc.pinned = annotation?.pinned
-        vc.coreDataService = coreData
+        vc.coreDataService = coreData!
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
